@@ -1,0 +1,213 @@
+DROP TABLE Localities;
+DROP TABLE Addresses;
+DROP TABLE CertificatesOfBirth;
+DROP TABLE Passports;
+DROP TABLE Documents;
+DROP TABLE Users;
+DROP TABLE Hotels;
+DROP TABLE HotelRooms;
+DROP TABLE Tours;
+DROP TABLE HotelRoomsInTour;
+DROP TABLE Prices;
+DROP TABLE Orders;
+
+CREATE TABLE IF NOT EXISTS public."Localities"
+(
+    id integer NOT NULL,
+    country character(150) COLLATE pg_catalog."default" NOT NULL,
+    region character(150) COLLATE pg_catalog."default" NOT NULL,
+    inhabited character(150) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Locality_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Localities"
+    OWNER to postgres;
+
+-- Table: public.Addresses
+
+-- DROP TABLE public."Addresses";
+
+CREATE TABLE IF NOT EXISTS public."Addresses"
+(
+    id integer NOT NULL,
+    street character(250) COLLATE pg_catalog."default" NOT NULL,
+    house character(250) COLLATE pg_catalog."default" NOT NULL,
+    extension character(250) COLLATE pg_catalog."default",
+    apartment character(250) COLLATE pg_catalog."default",
+    locality integer NOT NULL,
+    CONSTRAINT "Address_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Addresses"
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public."CertificatesOfBirth"
+(
+    id integer NOT NULL,
+    serial character(100) COLLATE pg_catalog."default" NOT NULL,
+    "number" character(100) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "CertificatesOfBirth_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."CertificatesOfBirth"
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public."Passports"
+(
+    id integer NOT NULL,
+    serial character(100) COLLATE pg_catalog."default" NOT NULL,
+    "number" character(100) COLLATE pg_catalog."default" NOT NULL,
+    "addressRegistration" integer NOT NULL,
+    CONSTRAINT "Passports_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Passports"
+    OWNER to postgres;
+
+
+
+CREATE TABLE IF NOT EXISTS public."Documents"
+(
+    id integer NOT NULL,
+    "dateOfIssue" date,
+    "issuedBy" character(250) COLLATE pg_catalog."default",
+    "documentType" integer NOT NULL,
+    "documentId" integer NOT NULL,
+    CONSTRAINT "Documents_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Documents"
+    OWNER to postgres;
+
+COMMENT ON TABLE public."Documents"
+    IS 'Столбец documentType определяет вид документа:
+1 - паспорт
+2 - сертификаит о рождении';
+
+
+
+CREATE TABLE IF NOT EXISTS public."Users"
+(
+    id integer NOT NULL,
+    "firstName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "lastName" character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    patronimyc character varying(50) COLLATE pg_catalog."default",
+    birthday date,
+    login character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    "typeOfUser" integer NOT NULL,
+    address integer,
+    telephone character(1) COLLATE pg_catalog."default",
+    mail character(1) COLLATE pg_catalog."default",
+    document integer,
+    CONSTRAINT "Users_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Users"
+    OWNER to postgres;
+
+
+
+CREATE TABLE IF NOT EXISTS public."Hotels"
+(
+    id integer NOT NULL,
+    name character(250) COLLATE pg_catalog."default" NOT NULL,
+    address integer NOT NULL,
+    CONSTRAINT "Hotels_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Hotels"
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public."HotelRooms"
+(
+    id integer NOT NULL,
+    "number" character(150) COLLATE pg_catalog."default" NOT NULL,
+    stars integer,
+    hotel integer NOT NULL,
+    "typeOfFood" character(150) COLLATE pg_catalog."default",
+    CONSTRAINT "HotelRooms_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."HotelRooms"
+    OWNER to postgres;
+
+
+
+CREATE TABLE IF NOT EXISTS public."Tours"
+(
+    id integer NOT NULL,
+    name character(250) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Tours_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Tours"
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public."HotelRoomsInTour"
+(
+    id integer NOT NULL,
+    tour integer,
+    "hotelRoom" integer,
+    CONSTRAINT "HotelRoomsInTour_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."HotelRoomsInTour"
+    OWNER to postgres;
+
+
+CREATE TABLE IF NOT EXISTS public."Prices"
+(
+    id integer NOT NULL,
+    tour integer NOT NULL,
+    price integer NOT NULL,
+    date date,
+    duration integer NOT NULL,
+    CONSTRAINT "Prices_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Prices"
+    OWNER to postgres;
+
+
+
+CREATE TABLE IF NOT EXISTS public."Orders"
+(
+    id integer NOT NULL,
+    "number" character(1) COLLATE pg_catalog."default" NOT NULL,
+    client integer NOT NULL,
+    price integer NOT NULL,
+    date date NOT NULL,
+    CONSTRAINT "Orders_pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE public."Orders"
+    OWNER to postgres;
