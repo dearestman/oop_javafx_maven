@@ -1,8 +1,17 @@
 package com.company.domain.documents;
 
+import com.company.Database;
+import com.company.domain.MyDate;
 import com.company.domain.address.Address;
+import com.company.domain.address.Locality;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class Passport extends Document{
     private String passportSerial;
@@ -39,4 +48,64 @@ public class Passport extends Document{
     public void setAddressRegistration(Address addressRegistration) {
         this.addressRegistration = addressRegistration;
     }
+
+    //SQL
+
+    public static void insertPassport(LocalDate dateOfIssue, String issuedBy, String serial,
+                                      String number, int addressRegistration) throws SQLException {
+
+        String formattedString = MyDate.covertLocalDateToString(dateOfIssue);
+        try {
+            Connection con = Database.getConnection();
+            Statement stmt = con.createStatement();
+            String rs = "INSERT INTO \"Documents\" (\"dateOfIssue\", \"issuedBy\", \"documentType\"," +
+                    " serial, \"number\", \"addressRegistration\") " +
+                    "VALUES ('"+formattedString+"', '"+issuedBy+"', "+1+", '"+serial+"', '"+number+"', "+addressRegistration+")";
+
+            stmt.executeUpdate(rs);
+            stmt.close();
+            con.close();
+        }
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
+
+    public static int getPassportId(LocalDate dateOfIssue, String issuedBy, String serial,
+                                     String number, int addressRegistration){
+            int passportId=-1;
+            String stringDateOfIssue = MyDate.covertLocalDateToString(dateOfIssue);
+            try {
+                Connection con = Database.getConnection();
+                try {
+                    Statement stmt = con.createStatement();
+                    ResultSet rs = stmt.executeQuery("SELECT * " +
+                            "FROM \"Documents\" " +
+                            "WHERE \"dateOfIssue\"='"+dateOfIssue+"' " +
+                            "AND \"issuedBy\"='"+issuedBy+"' " +
+                            "AND \"documentType\" = 1 " +
+                            "AND \"serial\"='"+serial+"' " +
+                            "AND \"number\"='"+number+"' " +
+                            "AND \"addressRegistration\"='"+addressRegistration+"'");
+
+                    while (rs.next()) {
+
+                        passportId = rs.getInt("id");
+
+                    }
+                    rs.close();
+                    stmt.close();
+                } finally {
+                    con.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return passportId;
+    }
+
+
+//    SQL
 }

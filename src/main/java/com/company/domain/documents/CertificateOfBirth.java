@@ -1,21 +1,26 @@
 package com.company.domain.documents;
 
+import com.company.Database;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 public class CertificateOfBirth extends Document{
 
     private int documentId;
-    private String sertificateOfBirthSerial;
-    private String sertificateOfBirthNumber;
+    private String certificateOfBirthSerial;
+    private String certificateOfBirthNumber;
 
-    public String getSertificateOfBirthSerial() {
-        return sertificateOfBirthSerial;
+    public String getCertificateOfBirthSerial() {
+        return certificateOfBirthSerial;
     }
 
-    public CertificateOfBirth(int documentId, LocalDate dateOfIssue, String issuedBy, String sertificateOfBirthSerial, String sertificateOfBirthNumber) {
+    public CertificateOfBirth(int documentId, LocalDate dateOfIssue, String issuedBy, String sertificateOfBirthSerial, String certificateOfBirthNumber) {
         super(documentId, dateOfIssue, issuedBy);
-        this.sertificateOfBirthSerial = sertificateOfBirthSerial;
-        this.sertificateOfBirthNumber = sertificateOfBirthNumber;
+        this.certificateOfBirthSerial = sertificateOfBirthSerial;
+        this.certificateOfBirthNumber = certificateOfBirthNumber;
     }
 
 
@@ -29,17 +34,23 @@ public class CertificateOfBirth extends Document{
         this.documentId = documentId;
     }
 
-    public void setSertificateOfBirthSerial(String sertificateOfBirthSerial) {
-        this.sertificateOfBirthSerial = sertificateOfBirthSerial;
+    public void setCertificateOfBirthSerial(String certificateOfBirthSerial) {
+        this.certificateOfBirthSerial = certificateOfBirthSerial;
     }
 
-    public String getSertificateOfBirthNumber() {
-        return sertificateOfBirthNumber;
+    public String getCertificateOfBirthNumber() {
+        return certificateOfBirthNumber;
     }
 
-    public void setSertificateOfBirthNumber(String sertificateOfBirthNumber) {
-        this.sertificateOfBirthNumber = sertificateOfBirthNumber;
+    public void setCertificateOfBirthNumber(String certificateOfBirthNumber) {
+        this.certificateOfBirthNumber = certificateOfBirthNumber;
     }
+
+    //SQL
+
+
+
+    //SQL
 
 
 }

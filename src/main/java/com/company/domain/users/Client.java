@@ -1,8 +1,10 @@
 package com.company.domain.users;
 
 import com.company.Database;
+import com.company.domain.MyDate;
 import com.company.domain.address.Address;
 import com.company.domain.documents.Document;
+import com.company.domain.documents.Passport;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -73,5 +75,37 @@ public class Client extends User implements UserRights{
         this.clientMail = clientMail;
     }
 
+    public static void insertClient(LocalDate dateOfIssue, String issuedBy, String serial,
+                                      String number, int addressRegistration, String firstName, String lastName, String patronymic,
+                                    LocalDate birthday, String login, String password, Address clientAddress,
+                                    String clientTelephone, String clientMail) throws SQLException {
+
+        Passport.insertPassport(dateOfIssue,issuedBy,serial,number,addressRegistration);
+
+        int passportId = Passport.getPassportId(dateOfIssue,issuedBy,serial,number,addressRegistration);
+        String stringBirthday = MyDate.covertLocalDateToString(birthday);
+
+
+        try {
+            Connection con = Database.getConnection();
+            Statement stmt = con.createStatement();
+            String rs = "INSERT INTO \"Users\" (" +
+                    "\"firstName\", \"lastName\", patronymic, " +
+                    "birthday, login, password, \"typeOfUser\", " +
+                    "address, telephone, mail, document) " +
+                    "VALUES ('"+firstName+"', '"+lastName+"', '"+patronymic+"'" +
+                    ", '"+birthday+"', '"+login+"', '"+password+"'" +
+                    ", 2, '"+addressRegistration+"', '"+clientTelephone+"'" +
+                    ", '"+clientMail+"', "+passportId+")";
+
+            stmt.executeUpdate(rs);
+            stmt.close();
+            con.close();
+        }
+        catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }
 
 }
