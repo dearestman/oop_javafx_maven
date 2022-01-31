@@ -55,7 +55,7 @@ public class Main {
 // конвертируем String в LocalDate
         LocalDate localDate = LocalDate.parse(date, formatter);
 //        Passport.insertPassport(localDate,"Отделом УФМС в г. Северодвинске","2222",
-//                "333333", 3);
+//                "3333 33", 3);
 
         LocalDate dateIssue = MyDate.covertStringToLocalDate("17.01.2017");
         LocalDate dateBirthday = MyDate.covertStringToLocalDate("17.06.1997");
