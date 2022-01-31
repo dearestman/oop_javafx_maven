@@ -54,6 +54,7 @@ public class Main {
         String date = "16.08.2016";
 // конвертируем String в LocalDate
         LocalDate localDate = LocalDate.parse(date, formatter);
+
 //        Passport.insertPassport(localDate,"Отделом УФМС в г. Северодвинске","2222",
 //                "3333 33", 3);
 
