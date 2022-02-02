@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" prefHeight="329.0" prefWidth="431.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="com.company.HelloController">
+<VBox alignment="TOP_CENTER" prefHeight="329.0" prefWidth="431.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.AuthorizationController">
    <Group>
       <children>
          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="431.0" />
@@ -37,7 +37,7 @@
       <VBox.margin>
          <Insets top="30.0" />
       </VBox.margin></Button>
-   <Text fill="#c33939" strokeType="OUTSIDE" strokeWidth="0.0" text="Такого пользователя не существует. Проверьте корректность введенных данных" textAlignment="CENTER" visible="false" wrappingWidth="323.77734375">
+   <Text fx:id="textError" fill="#c33939" strokeType="OUTSIDE" strokeWidth="0.0" text="Такого пользователя не существует. Проверьте корректность введенных данных" textAlignment="CENTER" visible="false" wrappingWidth="323.77734375">
       <VBox.margin>
          <Insets top="50.0" />
       </VBox.margin>

@@ -42,29 +42,8 @@ public class Main {
 
     public static void main(String[] args) throws SQLException {
 
-        ArrayList<Address> addresses = Address.selectAllAddresses();
-        for (Address address:addresses
-             ) {
-            System.out.print(address.getAddressLocality().getCountry()+ " ");
-            System.out.print(address.getAddressStreet()+" ");
-            System.out.print(address.getAddressHouse());
-            System.out.println();
-        }
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
-        String date = "16.08.2016";
-// конвертируем String в LocalDate
-        LocalDate localDate = LocalDate.parse(date, formatter);
-
-//        Passport.insertPassport(localDate,"Отделом УФМС в г. Северодвинске","2222",
-//                "3333 33", 3);
-
-        LocalDate dateIssue = MyDate.covertStringToLocalDate("17.01.2017");
-        LocalDate dateBirthday = MyDate.covertStringToLocalDate("17.06.1997");
-
-        Client.insertClient(dateIssue,"Отделом УФМС В г. Северодвинске", "4444", "123456",
-                addresses.get(1).getAddressId(),"Ступаков","Дмитрий", "Леонидович", dateBirthday,
-                null,null, addresses.get(1), "89911140456", "Stupakov.dmitriy@gmail.com");
-
+        User user = User.authorization("petrov.p", "123");
+        System.out.println(user.getFirstName());
 
     }
 }
