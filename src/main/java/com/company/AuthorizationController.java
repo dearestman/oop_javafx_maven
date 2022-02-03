@@ -38,7 +38,7 @@ public class AuthorizationController {
     @FXML
     void singIn(ActionEvent event) throws IOException, SQLException {
         User user = User.authorization(loginField.getText(),passwordField.getText());
-        if (user==null && loginField.getText().equals("") && passwordField.getText().equals("")){
+        if (user==null || loginField.getText().equals("") || passwordField.getText().equals("")){
             Shake userLoginAnimation = new Shake(loginField);
             Shake userPasswordAnimation = new Shake(passwordField);
             userLoginAnimation.playAnim();
@@ -56,7 +56,9 @@ public class AuthorizationController {
             Parent root = loader.getRoot();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
+            stage.setResizable(false);
             stage.showAndWait();
+
 
         }
 
