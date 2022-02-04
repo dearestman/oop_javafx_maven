@@ -21,18 +21,18 @@
                   <Font size="17.0" />
                </font>
             </PasswordField>
-            <Label layoutX="239.0" layoutY="30.0" prefHeight="41.0" prefWidth="238.0" text="Авторизация" textAlignment="CENTER" textFill="#8a8a8a" AnchorPane.leftAnchor="239.0" AnchorPane.rightAnchor="223.0">
+            <Label layoutX="246.0" layoutY="30.0" prefHeight="51.0" prefWidth="216.0" text="Авторизация" textAlignment="CENTER" textFill="#8a8a8a" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="238.0">
                <font>
                   <Font name="Lobster Regular" size="35.0" />
                </font>
             </Label>
-            <Button fx:id="singUpButton" layoutX="300.0" layoutY="233.0" mnemonicParsing="false" onAction="#singIn" style="-fx-background-color: #2E3348 #2E3348;" text="Войти" textFill="#fafafa">
+            <Button fx:id="singUpButton" layoutX="305.0" layoutY="234.0" mnemonicParsing="false" onAction="#singIn" style="-fx-background-color: #2E3348 #2E3348;" text="Войти" textFill="#fafafa">
                <font>
                   <Font name="Lobster Regular" size="24.0" />
                </font>
             </Button>
          </children></AnchorPane>
-      <Label layoutX="239.0" layoutY="20.0" text="Турагенство" textAlignment="CENTER" textFill="#fafafa" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="15.0">
+      <Label layoutX="239.0" layoutY="20.0" prefHeight="58.0" prefWidth="228.0" text="Турагенство" textAlignment="CENTER" textFill="#fafafa" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Lobster Regular" size="40.0" />
          </font>

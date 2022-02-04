@@ -5,32 +5,32 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.company.controllers.MainController">
    <children>
       <AnchorPane layoutX="-10.0" layoutY="79.0" prefHeight="321.0" prefWidth="700.0" style="-fx-background-color: #fafafa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="79.0">
          <children>
-            <Label layoutX="239.0" layoutY="30.0" prefHeight="45.0" prefWidth="287.0" text="Главная страница" textAlignment="CENTER" textFill="#8a8a8a" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="210.0">
+            <Label fx:id="helloField" layoutY="33.0" prefHeight="76.0" prefWidth="700.0" textAlignment="CENTER" textFill="#8a8a8a" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
-                  <Font name="Lobster Regular" size="35.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="clientButton" layoutX="131.0" layoutY="151.0" mnemonicParsing="false" style="-fx-background-color: #2E3348 #2E3348;" text="Клиенты" textFill="#fafafa" AnchorPane.leftAnchor="131.0">
+            <Button fx:id="clientButton" layoutX="131.0" layoutY="151.0" mnemonicParsing="false" onAction="#onActionClients" style="-fx-background-color: #2E3348 #2E3348;" text="Клиенты" textFill="#fafafa" AnchorPane.leftAnchor="131.0">
                <font>
                   <Font name="Lobster Regular" size="28.0" />
                </font>
             </Button>
-            <Button fx:id="orderButton" layoutX="317.0" layoutY="151.0" mnemonicParsing="false" style="-fx-background-color: #2E3348 #2E3348;" text="Заказы" textFill="#fafafa">
+            <Button fx:id="orderButton" layoutX="317.0" layoutY="151.0" mnemonicParsing="false" onAction="#onActionClients" style="-fx-background-color: #2E3348 #2E3348;" text="Заказы" textFill="#fafafa">
                <font>
                   <Font name="Lobster Regular" size="28.0" />
                </font>
             </Button>
-            <Button fx:id="tourButton" layoutX="483.0" layoutY="151.0" mnemonicParsing="false" style="-fx-background-color: #2E3348 #2E3348;" text="Туры" textFill="#fafafa" AnchorPane.rightAnchor="121.0">
+            <Button fx:id="tourButton" layoutX="483.0" layoutY="151.0" mnemonicParsing="false" onAction="#onActionClients" style="-fx-background-color: #2E3348 #2E3348;" text="Туры" textFill="#fafafa" AnchorPane.rightAnchor="121.0">
                <font>
                   <Font name="Lobster Regular" size="28.0" />
                </font>
             </Button>
          </children></AnchorPane>
-      <Label layoutX="239.0" layoutY="20.0" text="Турагенство" textAlignment="CENTER" textFill="#fafafa" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="242.0" AnchorPane.topAnchor="15.0">
+      <Label layoutX="239.0" layoutY="20.0" prefHeight="58.0" prefWidth="252.0" text="Турагенство" textAlignment="CENTER" textFill="#fafafa" AnchorPane.leftAnchor="242.0" AnchorPane.rightAnchor="206.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="Lobster Regular" size="40.0" />
          </font>

@@ -5,6 +5,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import com.company.controllers.MainController;
 import com.company.domain.animations.Shake;
 import com.company.domain.users.User;
 import javafx.event.ActionEvent;
@@ -47,7 +48,7 @@ public class AuthorizationController {
         } else {
 
             singUpButton.getScene().getWindow().hide();
-
+            MainController.setAuthorizedUser(user);
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("main.fxml"));
 
@@ -68,9 +69,6 @@ public class AuthorizationController {
 
     @FXML
     void initialize() {
-        assert loginField != null : "fx:id=\"loginField\" was not injected: check your FXML file 'authorization.fxml'.";
-        assert passwordField != null : "fx:id=\"passwordField\" was not injected: check your FXML file 'authorization.fxml'.";
-        assert singUpButton != null : "fx:id=\"singUpButton\" was not injected: check your FXML file 'authorization.fxml'.";
 
     }
 
