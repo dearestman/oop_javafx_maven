@@ -20,7 +20,6 @@ public class Client extends User implements UserRights{
         return super.getUserRight()+3;
     }
 
-    private Address clientAddress;
     private String clientTelephone;
     private String clientMail;
 //    private HashMap<String,Double> ClientBankAccounts = new HashMap<String, Double>();
@@ -34,10 +33,9 @@ public class Client extends User implements UserRights{
 //    }
 
     public Client(int userID, String firstName, String lastName, String patronymic,
-                  LocalDate birthday, String login, String password, Address clientAddress,
+                  LocalDate birthday, String login, String password,
                   String clientTelephone, String clientMail) {
         super(userID, firstName, lastName, patronymic, birthday, login, password);
-        this.clientAddress = clientAddress;
         this.clientTelephone = clientTelephone;
         this.clientMail = clientMail;
 //        this.ClientBankAccounts=clientBankAccounts;
@@ -51,13 +49,6 @@ public class Client extends User implements UserRights{
         return adult.getCertificateOfBirth();
     }
 
-    public Address getClientAddress() {
-        return clientAddress;
-    }
-
-    public void setClientAddress(Address clientAddress) {
-        this.clientAddress = clientAddress;
-    }
 
     public String getClientTelephone() {
         return clientTelephone;

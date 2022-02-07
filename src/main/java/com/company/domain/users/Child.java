@@ -13,7 +13,7 @@ public class Child extends Client{
     private CertificateOfBirth certificateOfBirth;
 
     public Child(int userID, String firstName, String lastName, String patronymic, LocalDate birthday, String login, String password, Address clientAddress, String clientTelephone, String clientMail, CertificateOfBirth certificateOfBirth, HashMap<String,Double> clientBankAccounts) {
-        super(userID, firstName, lastName, patronymic, birthday, login, password, clientAddress, clientTelephone, clientMail);
+        super(userID, firstName, lastName, patronymic, birthday, login, password, clientTelephone, clientMail);
         this.certificateOfBirth = certificateOfBirth;
     }
 

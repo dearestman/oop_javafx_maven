@@ -5,8 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class MyDate extends Date {
-    public static LocalDate covertStringToLocalDate(String date){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d.MM.yyyy");
+    public static LocalDate covertStringToLocalDate(String date, String pattern){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
         LocalDate localDate = LocalDate.parse(date, formatter);
         return localDate;
     }
@@ -17,4 +17,5 @@ public class MyDate extends Date {
         String stringDate = localDate.format(formatter);
         return stringDate;
     }
+
 }

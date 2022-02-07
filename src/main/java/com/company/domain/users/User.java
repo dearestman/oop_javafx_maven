@@ -11,7 +11,7 @@ import com.company.domain.documents.Document;
 import java.sql.*;
 import java.time.LocalDate;
 
-public abstract class User implements UserRights {
+public class User implements UserRights {
     private int userID;
     private String firstName;
     private String lastName;

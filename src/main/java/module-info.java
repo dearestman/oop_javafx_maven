@@ -12,6 +12,4 @@ module com.example.oop_javafx {
 
     opens com.company to javafx.fxml;
     exports com.company;
-    exports com.company.controllers;
-    opens com.company.controllers to javafx.fxml;
 }

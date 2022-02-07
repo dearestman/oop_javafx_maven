@@ -1,4 +1,4 @@
-package com.company.controllers;
+package com.company;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -5,6 +5,7 @@ import com.company.domain.address.Address;
 import com.company.domain.address.Locality;
 import com.company.domain.documents.CertificateOfBirth;
 import com.company.domain.documents.Passport;
+import com.company.domain.users.Adult;
 import com.company.domain.users.Client;
 import com.company.domain.users.User;
 
@@ -44,6 +45,10 @@ public class Main {
 
         User user = User.authorization("petrov.p", "123");
         System.out.println(user.getFirstName());
-
+        ArrayList<Adult> adults = Adult.selectAllAdults();
+        for (Adult adult:adults
+             ) {
+            System.out.println(adult.getFirstName() + " " + adult.getLastName());
+        }
     }
 }

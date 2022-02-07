@@ -5,7 +5,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import com.company.controllers.MainController;
 import com.company.domain.animations.Shake;
 import com.company.domain.users.User;
 import javafx.event.ActionEvent;
@@ -17,7 +16,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import org.w3c.dom.Node;
 
 public class AuthorizationController {
 
