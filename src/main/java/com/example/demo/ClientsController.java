@@ -1,43 +1,46 @@
 package com.example.demo;
 
-import com.example.demo.domain.users.Adult;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
-
-public class ClientsController implements Initializable {
+public class ClientsController {
 
     @FXML
     private Button addClientButton;
 
     @FXML
-    private TableView<TestUser> clientsTable;
+    private TableView<?> clientsTable;
 
     @FXML
     private Button deleteClientbutton;
 
     @FXML
-    private TableColumn<TestUser, String> firstNameColumn;
+    private ComboBox<?> filtrComboBox;
+
+    @FXML
+    private TableColumn<?, ?> firstNameColumn;
 
     @FXML
     private Label helloField;
 
     @FXML
-    private TableColumn<TestUser, String> lastNameColumn;
+    private TableColumn<?, ?> lastNameColumn;
 
     @FXML
-    private TableColumn<TestUser, String> patronymicColumn;
+    private TableColumn<?, ?> patronymicColumn;
+
+    @FXML
+    private TableColumn<?, ?> patronymicColumn1;
+
+    @FXML
+    private TextField searchClientField;
 
     @FXML
     void addClientButtonOnAction(ActionEvent event) {
@@ -49,22 +52,9 @@ public class ClientsController implements Initializable {
 
     }
 
+    @FXML
+    void searchClientOnKeyPressed(KeyEvent event) {
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        firstNameColumn.setCellValueFactory(new PropertyValueFactory<TestUser,String>("firstName"));
-        lastNameColumn.setCellValueFactory(new PropertyValueFactory<TestUser,String>("lastName"));
-        patronymicColumn.setCellValueFactory(new PropertyValueFactory<TestUser,String>("patronymic"));
-        clientsTable.setItems(returnObsList());
     }
 
-    private ObservableList<TestUser> returnObsList(){
-        ArrayList<Adult> clients = Adult.selectAllAdults();
-        ObservableList<TestUser> list = FXCollections.observableArrayList();
-        for (Adult client:clients
-             ) {
-            list.add(new TestUser(client.getFirstName(),client.getLastName(),client.getPatronymic()));
-        }
-        return list;
-    }
 }
